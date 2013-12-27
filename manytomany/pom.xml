@@ -35,9 +35,27 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>2.3.1</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.hsqldb</groupId> -->
+		<!-- <artifactId>hsqldb</artifactId> -->
+		<!-- <version>2.3.1</version> -->
+		<!-- </dependency> -->
+
+		<!-- Postgres9.1 -->
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901.jdbc4</version>
 		</dependency>
 
 	</dependencies>

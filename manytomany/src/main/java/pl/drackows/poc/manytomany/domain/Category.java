@@ -27,8 +27,8 @@ public class Category implements java.io.Serializable {
 	@Column(name = "NAME", nullable = false, length = 10)
 	private String name;
 
-	@Column(name = "DESC", nullable = false)
-	private String desc;
+	@Column(name = "DESCRIPTION", nullable = false)
+	private String description;
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy="categories")
 	private Set<Stock> stocks = new HashSet<Stock>(0);
@@ -38,12 +38,12 @@ public class Category implements java.io.Serializable {
 
 	public Category(String name, String desc) {
 		this.name = name;
-		this.desc = desc;
+		this.description = desc;
 	}
 
 	public Category(String name, String desc, Set<Stock> stocks) {
 		this.name = name;
-		this.desc = desc;
+		this.description = desc;
 		this.stocks = stocks;
 	}
 
@@ -64,11 +64,11 @@ public class Category implements java.io.Serializable {
 	}
 
 	public String getDesc() {
-		return this.desc;
+		return this.description;
 	}
 
 	public void setDesc(String desc) {
-		this.desc = desc;
+		this.description = desc;
 	}
 
 	public Set<Stock> getStocks() {
@@ -88,7 +88,7 @@ public class Category implements java.io.Serializable {
 				writeStocks = false;
 			}
 		}
-	    return "Category [categoryId=" + categoryId + ", name=" + name + ", desc=" + desc + ", stocks=" + (writeStocks?stocks:"[...]") + "]";
+	    return "Category [categoryId=" + categoryId + ", name=" + name + ", desc=" + description + ", stocks=" + (writeStocks?stocks:"[...]") + "]";
     }
 
 }

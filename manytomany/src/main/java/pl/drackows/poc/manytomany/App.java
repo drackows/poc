@@ -1,5 +1,6 @@
 package pl.drackows.poc.manytomany;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +17,11 @@ import pl.drackows.poc.manytomany.util.HibernateUtil;
 public class App {
 
 	@SuppressWarnings("unchecked")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, InterruptedException {
+		
+		Process exec = Runtime.getRuntime().exec("/home/drackowski/opt/postgres/bin/dropdb manytomany; /home/drackowski/opt/postgres/bin/createdb manytomany");
+		exec.waitFor();
+		
 		System.out.println("Hibernate many to many (Annotation)");
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
@@ -76,6 +81,9 @@ public class App {
 
 		session.getTransaction().commit();
 
+		session.createSQLQuery("SELECT * FROM INFORMATION_SCHEMA.SYSTEM_TABLES");
+		
+		
 		System.out.println("Done");
 	}
 }
